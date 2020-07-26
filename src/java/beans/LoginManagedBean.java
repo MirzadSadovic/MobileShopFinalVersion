@@ -30,7 +30,8 @@ public class LoginManagedBean implements Serializable {
             loggedIn = true;
             return goToPage;
         } else {
-            message = "Pogrešno korisničko ime ili lozinka!";
+            message = "Pogrešno korisničko ime ili lozinka"
+                    + " ili možda niste registrovani na naš Shop";
             loggedIn = false;
             return "login";
         }

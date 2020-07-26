@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Prijava</title>
+        <style>
+            .BImage{background-image: url("resources/images/shop-gray1.png");}
+        </style>
+    </h:head>
+    <h:body styleClass="BImage">
+        <h3>Prijava korisnika</h3>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputText value="Korisničko ime:"/>
+                <h:inputText id="username" value="#{loginManagedBean.username}" required="true" requiredMessage="Korisničko ime je obavezno"/>
+                <h:message for="username" style="color: red"/>
+
+                <h:outputText value="Lozinka:"/>
+                <h:inputSecret id="password" value="#{loginManagedBean.password}" required="true" requiredMessage="Lozinka je obavezna"/>
+                <h:message for="password" style="color: red"/>
+
+                <h:commandButton value="Prijavi se" action="#{loginManagedBean.loginFromIndex()}"/>
+                <h:outputText value="#{loginManagedBean.message}" style="color: red"/>
+            </h:panelGrid>
+        </h:form>
+        <br/><br/>
+        <h:form>
+            <p>Za registraciju na Mobile Shop posjetite: <h:commandButton value="REGISTER PAGE" action="register.xhtml"/></p>
+        </h:form>
+    </h:body>
+</html>
+

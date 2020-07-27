@@ -5,11 +5,10 @@ import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Local;
 
-
 @Local
 public interface PurchaseFacadeLocal {
 
-    void create(Purchase purchase);
+    public Purchase createPurchase(String username, String cardNumber, BigDecimal totalPrice);
 
     void edit(Purchase purchase);
 
@@ -18,10 +17,4 @@ public interface PurchaseFacadeLocal {
     Purchase find(Object id);
 
     List<Purchase> findAll();
-
-    List<Purchase> findRange(int[] range);
-
-    int count();
-    
-    public Purchase createPurchase(String username,String cardNumber, BigDecimal totalPrice);
 }

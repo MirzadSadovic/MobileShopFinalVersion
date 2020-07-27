@@ -113,5 +113,4 @@ public class Product implements Serializable {
     public String toString() {
         return "business.model.Product[ id=" + id + " ]";
     }
-
 }

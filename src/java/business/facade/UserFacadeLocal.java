@@ -11,18 +11,9 @@ public interface UserFacadeLocal {
     
     public boolean register(String username, String password, String name, String surname);
 
-    public void create(User user);
-
-    public void edit(User user);
-
     public void remove(User user);
 
     User find(Object id);
 
     List<User> findAll();
-
-    List<User> findRange(int[] range);
-
-    int count();
-
 }

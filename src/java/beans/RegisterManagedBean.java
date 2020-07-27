@@ -71,5 +71,4 @@ public class RegisterManagedBean implements Serializable {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
 }

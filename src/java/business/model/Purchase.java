@@ -150,5 +150,4 @@ public class Purchase implements Serializable {
     public String toString() {
         return "business.model.Purchase[ id=" + id + " ]";
     }
-    
 }

@@ -4,6 +4,8 @@ import beans.model.ShoppingCartItem;
 import business.facade.PurchaseProductFacadeLocal;
 import business.model.Purchase;
 import business.model.PurchaseProduct;
+import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -30,17 +32,23 @@ public class PurchaseProductManagedBean {
         this.purchaseManagedBean = purchaseManagedBean;
     }
 
+    private List<ShoppingCartItem> getShopingCartItems() {
+        return getPurchaseManagedBean().getProductManagedBean().getShoppingCartItems();
+    }
+
     public void savePurchases(String username) {
-        
+        if (getPurchaseManagedBean().totalPrice().equals(BigDecimal.ZERO)) {
+            return;
+
+        }
         Purchase purchase = getPurchaseManagedBean().savePurchase(username);
-        for (ShoppingCartItem item : getPurchaseManagedBean().getProductManagedBean().getShoppingCartItems()) {
-            PurchaseProduct pp = new PurchaseProduct();
-            pp.setProductId(item.getProduct());
-            pp.setPurchaseId(purchase);
-            pp.setQuantity(item.getQuantity());
-            purchaseProductFacadeLocal.create(pp);
+        for (ShoppingCartItem item : getShopingCartItems()) {
+            PurchaseProduct purchaseProduct = new PurchaseProduct();
+            purchaseProduct.setProductId(item.getProduct());
+            purchaseProduct.setPurchaseId(purchase);
+            purchaseProduct.setQuantity(item.getQuantity());
+            purchaseProductFacadeLocal.create(purchaseProduct);
         }
         getPurchaseManagedBean().cleanShoppingCartItems();
     }
-
 }

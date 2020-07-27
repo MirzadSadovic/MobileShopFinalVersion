@@ -5,21 +5,23 @@
     <h:head>
         <title>Prijava</title>
         <style>
-            .BImage{background-image: url("resources/images/shop-gray1.png");}
+            .BImage{background-image: url("resources/images/LoginPage.jpg");}
         </style>
     </h:head>
     <h:body styleClass="BImage">
+        <br/><br/><br/><br/>
         <h3>Prijava korisnika</h3>
+        <br/>
         <h:form>
-            <h:panelGrid columns="3">
+            <h:panelGrid columns="4">
                 <h:outputText value="Korisničko ime:"/>
                 <h:inputText id="username" value="#{loginManagedBean.username}" required="true" requiredMessage="Korisničko ime je obavezno"/>
                 <h:message for="username" style="color: red"/>
-
+                <br/>
                 <h:outputText value="Lozinka:"/>
                 <h:inputSecret id="password" value="#{loginManagedBean.password}" required="true" requiredMessage="Lozinka je obavezna"/>
                 <h:message for="password" style="color: red"/>
-
+                <br/><br/>
                 <h:commandButton value="Prijavi se" action="#{loginManagedBean.loginFromIndex()}"/>
                 <h:outputText value="#{loginManagedBean.message}" style="color: red"/>
             </h:panelGrid>

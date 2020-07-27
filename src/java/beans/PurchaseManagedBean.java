@@ -68,7 +68,9 @@ public class PurchaseManagedBean implements Serializable {
     public void cleanShoppingCartItems() {
         getProductManagedBean().getShoppingCartItems().clear();
     }
-    public Purchase savePurchase(String username){
-        return purchaseFacadeLocal.createPurchase(username, cardNumber, totalPrice());
+
+    public Purchase savePurchase(String username) {
+        Purchase purchase = purchaseFacadeLocal.createPurchase(username, cardNumber, totalPrice());
+        return purchase;
     }
 }

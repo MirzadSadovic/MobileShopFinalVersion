@@ -5,7 +5,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
 @Stateless
 public class ProductFacade extends AbstractFacade<Product> implements ProductFacadeLocal {
 
@@ -20,5 +19,4 @@ public class ProductFacade extends AbstractFacade<Product> implements ProductFac
     public ProductFacade() {
         super(Product.class);
     }
-    
 }

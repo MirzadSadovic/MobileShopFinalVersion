@@ -30,7 +30,7 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
             query.setParameter("password", password);
             User user = (User) query.getSingleResult();
             return user;
-        } catch (Exception exception) {
+        } catch (Exception e) {
             return null;
         }
     }

@@ -106,5 +106,5 @@ public class PurchaseProduct implements Serializable {
     @Override
     public String toString() {
         return "business.model.PurchaseProduct[ id=" + id + " ]";
-    } 
+    }
 }

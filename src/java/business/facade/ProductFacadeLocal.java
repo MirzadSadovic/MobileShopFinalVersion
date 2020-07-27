@@ -4,7 +4,6 @@ import business.model.Product;
 import java.util.List;
 import javax.ejb.Local;
 
-
 @Local
 public interface ProductFacadeLocal {
 
@@ -17,9 +16,4 @@ public interface ProductFacadeLocal {
     Product find(Object id);
 
     List<Product> findAll();
-
-    List<Product> findRange(int[] range);
-
-    int count();
-    
 }
